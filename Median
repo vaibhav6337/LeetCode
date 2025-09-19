@@ -1,0 +1,20 @@
+//Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+import java.util.*;
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int ml=nums1.length+nums2.length;
+        double a,b;
+        int[] ma= new int[ml];
+        System.arraycopy(nums1,0,ma,0,nums1.length);
+        System.arraycopy(nums2,0,ma,nums1.length,nums2.length);
+        Arrays.sort(ma);
+        if(ml%2==0){
+            b=ma[ml/2]+ma[(ml/2)-1];
+            a=b/2;
+        }else{
+            a=ma[ml/2];
+        }
+        return a;
+    }
+}
